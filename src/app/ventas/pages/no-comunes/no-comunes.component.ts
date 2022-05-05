@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-no-comunes',
@@ -39,6 +40,33 @@ export class NoComunesComponent implements OnInit {
     edad: 30,
     direccion: 'San Justo, Santa Fe'
   }
+
+  //JsonPipe
+  heroes=[
+    {
+      nombre:'Superman',
+      vuela: true
+    },
+    { 
+      nombre:'Robin',
+      vuela: false,
+    },
+    { 
+      nombre:'Aquaman',
+      vuela: false,
+    }
+  ]
+
+  //Asunc Pipe mediante un observable
+  miObservable = interval(5000); //0,1,2,3,4,5,....
+
+  //Async mediante una promesa
+
+  valorPromesa = new Promise((resolve,reject)=>{
+    setTimeout( () => {
+      resolve ('Tenemos data de promesa');
+    },3500)
+  })
   constructor() { }
 
   ngOnInit(): void {
